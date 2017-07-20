@@ -1,0 +1,61 @@
+
+<html>
+<head>
+	<title>테스트</title>
+	<script src="IsleOfTrains.js"></script>
+</head>
+<body>
+<table>
+<tr><td>Player0</td></tr>
+</table>
+<div>
+<h5>Player0</h5>
+<script>for(var i = 0; i<tPlayer[0].Hand.length;i++)
+{
+
+	document.write('<div style=float:left><ul style=font-size:11px>'+tPlayer[0].Hand[i].Title+'');
+	document.write('<li>TrainType : '+tPlayer[0].Hand[i].TrainType+'</li>');
+	document.write('<li>EndGameTrainPoints : '+tPlayer[0].Hand[i].EndGameTrainPoints+'</li>');
+	document.write('<li>WeightModifier : '+tPlayer[0].Hand[i].WeightModifier+'</li>');
+	document.write('<li>_Key : '+tPlayer[0].Hand[i]._Key+'</li>');
+	//document.write('<li>BenefitFromLoading : '+tPlayer[0].Hand[i].BenefitFromLoading+'</li>');
+	document.write('<li>CargoCapacity : '+tPlayer[0].Hand[i].CargoCapacity+'</li>');
+	document.write('<li>CargoNeededForLoading : '+tPlayer[0].Hand[i].CargoNeededForLoading+'</li>');
+	document.write('<li>CargoType : '+tPlayer[0].Hand[i].CargoType+'</li>');
+	document.write('<li>Cargo : '+tPlayer[1].Hand[i].Cargo+'</li>');
+	document.write('<li>Cost : '+tPlayer[0].Hand[i].Cost+'</li></ul></div>');
+}
+</script>
+</div>
+<div>
+<h5>Player1</h5>
+<script>for(var i = 0; i<tPlayer[1].Engine.length;i++)
+{
+
+	document.write('<div style=float:left><ul style=font-size:11px>'+tPlayer[1].Engine[i]+'');
+	document.write('<li>TrainType : '+tPlayer[1].Hand[i].TrainType+'</li>');
+	document.write('<li>Cost : '+tPlayer[1].Hand[i].Cost+'</li></ul></div>');
+}
+</script>
+</div>
+<div>
+<h5>Player1</h5>
+<script>for(var i = 0; i<tPlayer[1].Hand.length;i++)
+{
+
+	document.write('<div style=float:left><ul style=font-size:11px>'+tPlayer[1].Hand[i].Title+'');
+	document.write('<li>TrainType : '+tPlayer[1].Hand[i].TrainType+'</li>');
+	document.write('<li>EndGameTrainPoints : '+tPlayer[1].Hand[i].EndGameTrainPoints+'</li>');
+	document.write('<li>WeightModifier : '+tPlayer[1].Hand[i].WeightModifier+'</li>');
+	document.write('<li>_Key : '+tPlayer[1].Hand[i]._Key+'</li>');
+	//document.write('<li>BenefitFromLoading : '+tPlayer[1].Hand[i].BenefitFromLoading+'</li>');
+	document.write('<li>CargoCapacity : '+tPlayer[1].Hand[i].CargoCapacity+'</li>');
+	document.write('<li>CargoNeededForLoading : '+tPlayer[1].Hand[i].CargoNeededForLoading+'</li>');
+	document.write('<li>CargoType : '+tPlayer[1].Hand[i].CargoType+'</li>');
+	document.write('<li>Cargo : '+tPlayer[1].Hand[i].Cargo+'</li>');
+	document.write('<li>Cost : '+tPlayer[1].Hand[i].Cost+'</li></ul></div>');
+}
+</script>
+</div>
+</body>
+</html>
