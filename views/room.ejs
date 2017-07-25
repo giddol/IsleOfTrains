@@ -1,0 +1,63 @@
+<% include include/header.ejs %>
+<% 
+var tIndex;
+for (var max = room.player.length, i = 0; i < max; i++) {
+	if (room.player[i].nick === user.user_nick) {
+		tIndex = i;
+		break;
+	}
+}
+%>
+<% if ( room.gameState === 0) { %>
+	시작하거라
+	<form action="/startRoom?roomId=<%= room._id %>" method="post"><input type="submit" value="싱글플레이" /></form>
+<% } else if ( room.gameState === 1) { 
+	for (var i=0; i<room.member.length;i++) { %>
+	<div style="position: absolute; left: 10px; top: <%= i*500+10 %>px;border=1px;border:1px solid #000;">
+	<h3><%= room.member[0] %> Hand</h3>
+	<% for (var j =0; j<room.player[i].Hand.length; j++) { %>
+		<img src=/images/<%=room.player[i].Hand[j]%>.jpg title="<%= tCardArray[room.player[i].Hand[j]].Title %>" />
+	<% } %>
+
+	<h3><%= room.member[0] %> Engine</h3>
+	<% if (room.player[i].Engine !== -1) { %>
+		<img src=/images/<%=room.player[i].Engine%>.jpg title="<%= tCardArray[room.player[i].Engine].Title %>" />
+	<% } %>
+	<%= room.player[i].Engine%>
+
+
+
+	<h3><%= room.member[0] %> Car</h3>
+	<% for (var j =0; j<room.player[i].Car.length; j++) { %>
+		<img src=/images/<%=room.player[i].Car[j]%>.jpg title="<%= tCardArray[room.player[i].Car[j]].Title %>" />
+	<% } %>
+
+	<h3><%= room.member[0] %> Cargo</h3>
+	<% for (var j =0; j<room.player[i].Cargo.length; j++) { %>
+		<img src=/images/<%=room.player[i].Cargo[j]%>.jpg title="<%= tCardArray[room.player[i].Cargo[j]].Title %>" />
+	<% } %>
+
+	<h3><%= room.member[0] %> Carboose</h3>
+	<% for (var j =0; j<room.player[i].Carboose.length; j++) { %>
+		<img src=/images/<%=room.player[i].Carboose[j]%>.jpg title="<%= tCardArray[room.player[i].Carboose[j]].Title %>" />
+	<% } %>
+
+	<h3><%= room.member[0] %> Building</h3>
+	<% for (var j =0; j<room.player[i].Building.length; j++) { %>
+	<img src=/images/<%=room.player[i].Building%>.jpg title="<%= tCardArray[room.player[i].Building].Title %>" />
+	<% } %>
+
+
+	</div>
+	<% } %>
+		<% if(room.action === 0 && room.player[tIndex].Hand.length > 5) { %>
+				카드를 버려라
+		<% } else {	%>
+		<div style="position: relative;">
+		<form action="/action_Take?roomId=<%= room._id %>" method="post"><input type="submit" value="Take" /></form>
+		</div>
+
+<% }} %>
+
+
+<% include include/footer.ejs %>
